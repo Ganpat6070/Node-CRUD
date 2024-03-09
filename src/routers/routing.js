@@ -5,10 +5,16 @@ const MensRanking = require('../models/schema');
 
 router.post('/mens', async (req, res)=>{
     try{
-        const addingMensRecords = new MensRanking(req.body);
-        console.log(req.body);
-        const insertMens = await addingMensRecords.save();
-        res.status(201).send(insertMens);
+        //Method 1
+        // const addingMensRecords = new MensRanking(req.body);
+        // console.log(req.body);
+        // const insertMens = await addingMensRecords.save();
+        // res.status(201).send(insertMens);
+
+        // Method 2 ( Easy to remember )
+        const addingMensRecords = MensRanking.create(req.body);
+        // console.log(req.body);
+        res.status(201).send(addingMensRecords);
     }catch(e){
         res.status(400).send(e);
     }
