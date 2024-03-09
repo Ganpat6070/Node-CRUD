@@ -7,6 +7,9 @@ const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(express.json());
+app.use('/', (req, res)=>{
+  res.send("Hello World!");
+})
 app.use(router); // I can also use this line as a app.use('/api', router); but now i can api as (localjost:8000/api/apiname)
 //I can create multiple routes like app.use('/api/v1', router);
 
